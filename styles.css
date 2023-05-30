@@ -7,24 +7,87 @@ body {
     }
 
 #container {
-    border: 20px solid rgb(168, 0, 0);
+    border: 10px solid rgb(168, 0, 0);
     display: grid;
-    grid-template-columns: repeat(100, auto);
-    grid-template-rows: repeat(100, auto);
-    width: 75vmin;
-    height: 75vmin;
+    grid-template-columns: repeat(16, auto);
+    grid-template-rows: repeat(16, auto);
+    width: 50vmin;
+    height: 50vmin;
     margin: 0 auto;
     }
 
 .newDiv {
     text-align: center;
-    border: .1px solid rgb(182, 182, 182);
+    border: 1px solid rgb(182, 182, 182);
     font-size: xx-small;
     background-color: rgb(201, 201, 201);
     }
 
-  h1 {
+h1 {
     font-size: 5vmin;
     text-align: center;
     color: rgb(182, 182, 182);
     }
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.color-button {
+    color: #1f2937;
+}
+
+button {
+    width: 100px;
+    height: 40px;
+    font-weight: 700;
+    border-radius: 5%;
+    border: 50px;
+    border-color: white;
+    box-shadow: 0 2px 4px darkslategray;
+    transition: all 0.2s ease;
+    margin: 10px;
+}
+
+button:active {
+    box-shadow: 0 0 2px darkslategray;
+    transform: translateY(2px);
+}
+
+.reset {
+    display: flex;
+    justify-content: center;
+}
+
+#reset-button {
+    color: white;
+}
+
+#random { 
+    background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red);
+}
+
+#shadesOfGrey {
+    background: grey;
+}
+
+#red {
+    background: red;
+}
+
+#blue {
+    background: blue;
+}
+
+#green {
+    background: green;
+}
+
+#yellow {
+    background: yellow;
+}
+
+#reset-button {
+    background: black;
+}
