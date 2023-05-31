@@ -10,18 +10,22 @@
   <body>
     <h1>Etch-a-Sketch!</h1>
     <div class="reset">
-      <button id="reset-button">Reset Board</button>
+      <button id="reset-button">Refresh Canvas</button>
     </div>
-    <container id="container" class="container">
-    </container>
+    <div class="canvas-input">
+      <input label="sizeSelection" id="sizeSelection">Input the desired canvas height</input>
+    </div>
     <div class="buttons">
       <button class="color-button" id="shadesOfGrey">Shades Of Grey</button>
       <button class="color-button" id="random">Random Color</button>
       <button class="color-button" id="red" data-color="red">Red</button>
       <button class="color-button" id="blue" data-color="blue">Blue</button>
+      <button class="color-button" id="black" data-color="black">Black</button>
       <button class="color-button" id="green" data-color="green">Green</button>
       <button class="color-button" id="yellow" data-color="yellow">Yellow</button>
     </div>
+    <container id="container" class="container">
+    </container>
     <script src="./app.js"></script>
   </body>
 </html>

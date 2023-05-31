@@ -9,8 +9,8 @@ body {
 #container {
     border: 10px solid rgb(168, 0, 0);
     display: grid;
-    grid-template-columns: repeat(16, auto);
-    grid-template-rows: repeat(16, auto);
+    grid-template-columns: repeat(32, auto);
+    grid-template-rows: repeat(32, auto);
     width: 50vmin;
     height: 50vmin;
     margin: 0 auto;
@@ -36,10 +36,11 @@ h1 {
 
 .color-button {
     color: #1f2937;
+    margin-bottom: 50px;
 }
 
 button {
-    width: 100px;
+    width: 80px;
     height: 40px;
     font-weight: 700;
     border-radius: 5%;
@@ -60,8 +61,16 @@ button:active {
     justify-content: center;
 }
 
-#reset-button {
+.canvas-input {
+    display: flex;
+    justify-content: center;
     color: white;
+    margin: 20px;
+}
+
+#reset-button {
+    color: black;
+    background: white;
 }
 
 #random { 
@@ -88,6 +97,7 @@ button:active {
     background: yellow;
 }
 
-#reset-button {
+#black {
     background: black;
+    color: white;
 }

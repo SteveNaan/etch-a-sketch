@@ -2,7 +2,16 @@ let color = "black";
 
 let colorMode = ""
 
+let canvasSize = ""
+
 const container = document.getElementById("container");
+
+document.getElementById("sizeSelection").addEventListener("change", function(e) {
+        console.log('changed', e);
+        canvasSize = e.target.value;
+});
+
+// container.style.grid-template-rows = rows
 
 document.querySelectorAll('.color-button').forEach(function(button) {
     button.addEventListener('click', function() {
@@ -12,7 +21,7 @@ document.querySelectorAll('.color-button').forEach(function(button) {
 });
 
 document.getElementById('random').addEventListener('click', function() {
-    colorMode = 'random';
+    colorMode = "random";
 });
 
 document.getElementById("shadesOfGrey").addEventListener("click", function() {
@@ -23,34 +32,20 @@ document.getElementById("reset-button").addEventListener("click", function() {
     while (container.firstChild){
     container.removeChild(container.firstChild);
 }
-    for (let i = 0; i < (16 ** 2); i++){
-        const newDiv = document.createElement("div");
-        container.appendChild(newDiv);
-        newDiv.classList.add("newDiv");
-        newDiv.addEventListener("mouseover", function() {
-            if (colorMode === "random") {
-                color = getRandomColor();
-            } else if (colorMode === "grey") {
-                color = getShadesOfGrey();
-            }
-            newDiv.style.backgroundColor = color;
-        } )
-    };
+    if (canvasSize > 0){
+    createCanvas(canvasSize)
+    container.style.gridTemplateRows = `repeat(${canvasSize}, auto)`;
+    container.style.gridTemplateColumns = `repeat(${canvasSize}, auto)`;
+    }
+    else {
+        let canvasSize = 32;
+        createCanvas(canvasSize)
+        container.style.gridTemplateRows = `repeat(${canvasSize}, auto)`;
+        container.style.gridTemplateColumns = `repeat(${canvasSize}, auto)`;
+    }
 })
 
-for (let i = 0; i < (16 ** 2); i++){
-const newDiv = document.createElement("div");
-container.appendChild(newDiv);
-newDiv.classList.add("newDiv");
-newDiv.addEventListener("mouseover", function() {
-    if (colorMode === "random") {
-        color = getRandomColor();
-    } else if (colorMode === "grey") {
-        color = getShadesOfGrey();
-    }
-    newDiv.style.backgroundColor = color;
-})
-};
+createCanvas(32)
 
 function getRandomColor() {
     let color = "rgb(";
@@ -70,3 +65,23 @@ function getShadesOfGrey() {
     color += number + "," + number + "," + number + ")";
     return color
 };
+
+function getCanvasSize() {
+    // ?????
+}
+
+function createCanvas(canvasSize) {
+    for (let i = 0; i < (canvasSize ** 2); i++){ // replace 32 with canvasSize?
+        const newDiv = document.createElement("div");
+        container.appendChild(newDiv);
+        newDiv.classList.add("newDiv");
+        newDiv.addEventListener("mouseover", function() {
+            if (colorMode === "random") {
+                color = getRandomColor();
+            } else if (colorMode === "grey") {
+                color = getShadesOfGrey();
+            }
+            newDiv.style.backgroundColor = color;
+        })
+        };
+}
