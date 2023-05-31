@@ -37,6 +37,7 @@ document.getElementById("reset-button").addEventListener("click", function() {
         createCanvas(canvasSize)
     }
     else if (canvasSize > 100) {
+        alert("Maximum canvas height is 100, please enter a number between 1-100")
         canvasSize = 100;
         createCanvas(canvasSize)
     }
