@@ -30,19 +30,23 @@ document.getElementById("shadesOfGrey").addEventListener("click", function() {
 
 document.getElementById("reset-button").addEventListener("click", function() {
     while (container.firstChild){
-    container.removeChild(container.firstChild);
-}
-    if (canvasSize > 0){
-    createCanvas(canvasSize)
-    container.style.gridTemplateRows = `repeat(${canvasSize}, auto)`;
-    container.style.gridTemplateColumns = `repeat(${canvasSize}, auto)`;
+        container.removeChild(container.firstChild);
+    }
+
+    if (canvasSize > 0 && canvasSize <= 100){
+        createCanvas(canvasSize)
+    }
+    else if (canvasSize > 100) {
+        canvasSize = 100;
+        createCanvas(canvasSize)
     }
     else {
-        let canvasSize = 32;
+        canvasSize = 32;
         createCanvas(canvasSize)
-        container.style.gridTemplateRows = `repeat(${canvasSize}, auto)`;
-        container.style.gridTemplateColumns = `repeat(${canvasSize}, auto)`;
     }
+
+    container.style.gridTemplateRows = `repeat(${canvasSize}, auto)`;
+    container.style.gridTemplateColumns = `repeat(${canvasSize}, auto)`;
 })
 
 createCanvas(32)
@@ -65,10 +69,6 @@ function getShadesOfGrey() {
     color += number + "," + number + "," + number + ")";
     return color
 };
-
-function getCanvasSize() {
-    // ?????
-}
 
 function createCanvas(canvasSize) {
     for (let i = 0; i < (canvasSize ** 2); i++){ // replace 32 with canvasSize?
