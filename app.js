@@ -1,8 +1,10 @@
 let color = "black";
 
-let colorMode = ""
+let colorMode = "";
 
-let canvasSize = ""
+let canvasSize = "";
+
+let number = 0;
 
 const container = document.getElementById("container");
 
@@ -42,7 +44,7 @@ document.getElementById("reset-button").addEventListener("click", function() {
         createCanvas(canvasSize)
     }
     else {
-        canvasSize = 32;
+        canvasSize = 16;
         createCanvas(canvasSize)
     }
 
@@ -50,7 +52,7 @@ document.getElementById("reset-button").addEventListener("click", function() {
     container.style.gridTemplateColumns = `repeat(${canvasSize}, auto)`;
 })
 
-createCanvas(32)
+createCanvas(16)
 
 function getRandomColor() {
     let color = "rgb(";
@@ -66,9 +68,16 @@ function getRandomColor() {
 
 function getShadesOfGrey() {
     let color = "rgb(";
-    number = Math.floor(Math.random() * 255);
-    color += number + "," + number + "," + number + ")";
-    return color
+    if (number <= 245) {
+        number += 5;
+        color += number + "," + number + "," + number + ")";
+        return color;
+    }
+    else if(number > 245) {
+        number = 0;
+        color += number + "," + number + "," + number + ")";
+        return color;
+    }
 };
 
 function createCanvas(canvasSize) {

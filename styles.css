@@ -9,8 +9,8 @@ body {
 #container {
     border: 10px solid rgb(168, 0, 0);
     display: grid;
-    grid-template-columns: repeat(32, auto);
-    grid-template-rows: repeat(32, auto);
+    grid-template-columns: repeat(16, auto);
+    grid-template-rows: repeat(16, auto);
     width: 50vmin;
     height: 50vmin;
     margin: 0 auto;
@@ -66,6 +66,10 @@ button:active {
     justify-content: center;
     color: white;
     margin: 20px;
+}
+
+button:hover {
+    transform: scale(1.05); 
 }
 
 #reset-button {
